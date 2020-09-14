@@ -6,12 +6,12 @@
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(todaysMood);
+    console.log(selected);
   };
 </script>
 
 <form on:submit={handleSubmit}>
-  <select value={selected} on:change={() => (todaysMood = '')}>
+  <select value={selected} on:blur={() => (todaysMood = selected)}>
     {#each moodChoices as choice}
       <option value={choice}>{choice}</option>
     {/each}

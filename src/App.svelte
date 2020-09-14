@@ -2,6 +2,7 @@
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
   import InputForm from "./components/InputForm.svelte";
+  import Chart from "./components/Chart.svelte";
 </script>
 
 <style>
@@ -23,6 +24,7 @@
 <main>
   <h3>How are you feeling today?</h3>
   <InputForm />
+  <Chart />
 </main>
 
 <Footer />
