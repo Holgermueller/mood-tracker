@@ -10,11 +10,16 @@
   };
 </script>
 
-<form on:submit={handleSubmit}>
-  <select value={selected} on:blur={() => (todaysMood = selected)}>
-    {#each moodChoices as choice}
-      <option value={choice}>{choice}</option>
-    {/each}
-  </select>
-  <button type="submit">Submit</button>
-</form>
+<style>
+  input {
+    display: block;
+  }
+</style>
+
+<select bind:value={todaysMood}>
+  {#each moodChoices as moodChoice}
+    <option value={moodChoice}>{moodChoice}</option>
+  {/each}
+</select>
+
+<h4>Mood selected: {todaysMood}</h4>
