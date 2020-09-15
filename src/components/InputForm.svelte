@@ -6,7 +6,7 @@
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(selected);
+    console.log(todaysMood);
   };
 </script>
 
@@ -21,5 +21,7 @@
     <option value={moodChoice}>{moodChoice}</option>
   {/each}
 </select>
+
+<button on:click={handleSubmit}>Submit</button>
 
 <h4>Mood selected: {todaysMood}</h4>
