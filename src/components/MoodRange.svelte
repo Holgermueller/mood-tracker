@@ -4,6 +4,10 @@
   let selected;
 
   let todaysMood = "";
+
+  const handleClick = () => {
+    console.log(id);
+  };
 </script>
 
 <style>
@@ -11,21 +15,20 @@
     width: 55%;
     margin: 8px auto;
   }
+
+  .button {
+    margin: 4px;
+  }
 </style>
 
 <fieldset>
   <legend>Range:</legend>
 
-  <div>
-    <button value="1">1</button>
-    <button value="2">2</button>
-    <button value="3">3</button>
-    <button value="4">4</button>
-    <button value="5">5</button>
-    <button value="6">6</button>
-    <button value="7">7</button>
-    <button value="8">8</button>
-    <button value="9">9</button>
-    <button value="10">10</button>
-  </div>
+  {#each moodRange as mood}
+    <button
+      on:click={handleClick}
+      id={mood}
+      value={mood}
+      class="button">{mood}</button>
+  {/each}
 </fieldset>
