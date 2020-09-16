@@ -1,9 +1,8 @@
 <script>
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
-  import InputForm from "./components/InputForm.svelte";
   import TodaysDate from "./components/TodaysDate.svelte";
-  import Range from "./components/Range.svelte";
+  import MoodRange from "./components/MoodRange.svelte";
   import Chart from "./components/Chart.svelte";
 </script>
 
@@ -26,8 +25,8 @@
 <main>
   <h3>How are you feeling today?</h3>
   <TodaysDate />
-  <Range />
-  <InputForm />
+  <MoodRange />
+
   <Chart />
 </main>
 
