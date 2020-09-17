@@ -5,8 +5,8 @@
 
   let todaysMood = "";
 
-  const handleClick = () => {
-    console.log(id);
+  const handleClick = (e) => {
+    console.log(e.target.value);
   };
 </script>
 
