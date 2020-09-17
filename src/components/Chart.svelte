@@ -1,5 +1,16 @@
 <script>
-  import Header from "./Header.svelte";
+  import MoodStore from "../stores/MoodStore";
+
+  let moods = [];
+
+  MoodStore.subscribe((data) => {
+    moods = data;
+  });
 </script>
 
-<div>A chart with results will appear here.</div>
+<div>
+  {#each moods as mood}
+    <h5>{mood.mood}</h5>
+    <h6>{mood.date}</h6>
+  {/each}
+</div>
