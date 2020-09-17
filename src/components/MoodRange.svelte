@@ -14,6 +14,15 @@
   fieldset {
     width: 55%;
     margin: 8px auto;
+    border-radius: 15px;
+  }
+
+  .low-end {
+    float: left;
+  }
+
+  .high-end {
+    float: right;
   }
 
   .button {
@@ -24,6 +33,8 @@
 <fieldset>
   <legend>Range:</legend>
 
+  <p class="low-end">Ugh...</p>
+
   {#each moodRange as mood}
     <button
       on:click={handleClick}
@@ -31,4 +42,6 @@
       value={mood}
       class="button">{mood}</button>
   {/each}
+
+  <p class="high-end">Great!!</p>
 </fieldset>
