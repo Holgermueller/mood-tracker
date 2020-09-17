@@ -1,5 +1,5 @@
 <script>
-  let TodaysDate = new Date();
+  import moment from "moment";
 </script>
 
 <style>
@@ -12,5 +12,6 @@
 
 <fieldset>
   <legend>Today's Date:</legend>
-  <h3>{TodaysDate}</h3>
+
+  <h3>{moment().format('hh:mm A, Do MMM YYYY')}</h3>
 </fieldset>
