@@ -4,6 +4,16 @@
   import TodaysDate from "./components/TodaysDate.svelte";
   import MoodRange from "./components/MoodRange.svelte";
   import Chart from "./components/Chart.svelte";
+  import Graphs from "./components/Graphs.svelte";
+  import Tabs from "./shared/Tabs.svelte";
+
+  let items = ["Chart", "Graphs"];
+  let activeItem = "Chart";
+  const tabChange = (e) => (activeItem = e.detail);
+
+  const handleAdd = () => {
+    activeItem = "Chart";
+  };
 </script>
 
 <style>
@@ -27,7 +37,12 @@
   <TodaysDate />
   <MoodRange />
 
-  <Chart />
+  <Tabs {activeItem} {items} on:tabChange={tabChange} />
+  {#if activeItem === 'Chart'}
+    <Chart />
+  {:else if activeItem === 'Graphs'}
+    <Graphs on:add={handleAdd} />
+  {/if}
 </main>
 
 <Footer />
