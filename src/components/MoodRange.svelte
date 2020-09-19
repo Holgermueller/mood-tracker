@@ -1,13 +1,20 @@
 <script>
+  import Modal from "../shared/Modal.svelte";
+
+  let showModal = false;
+
   let moodRange = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
   let selected;
 
   let todaysMood = "";
 
-  const handleClick = (e) => {
+  let toggleModal = (e) => {
+    showModal = !showModal;
     console.log(e.target.value);
   };
+
+  const handleClick = (e) => {};
 </script>
 
 <style>
@@ -30,6 +37,10 @@
   }
 </style>
 
+<Modal {showModal} on:click={toggleModal}>
+  <h1>This is the modal!!</h1>
+</Modal>
+
 <fieldset>
   <legend>Range:</legend>
 
@@ -37,7 +48,7 @@
 
   {#each moodRange as mood}
     <button
-      on:click={handleClick}
+      on:click={toggleModal}
       id={mood}
       value={mood}
       class="button">{mood}</button>
