@@ -1,11 +1,37 @@
 <script>
   import MoodStore from "../stores/MoodStore";
+
+  $: daysTracked = $MoodStore.length;
 </script>
 
-<h1>How often you feel each mood.</h1>
+<style>
+  h3 {
+    margin: 0 auto;
+    color: #555;
+  }
+  p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 30px;
+  }
+  .mood {
+    background: #fafafa;
+    margin: 10px auto;
+    position: relative;
+  }
+  span {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 15px;
+  }
+</style>
+
+<h3>How often you feel each mood.</h3>
+
+<p>Total days tracked: {daysTracked}</p>
 <div>
   {#each $MoodStore as mood}
-    <h5>{mood.mood}</h5>
-    <h5>{mood.moodId}</h5>
+    <div class="mood"><span>{mood.mood} | Days felt:x</span></div>
   {/each}
 </div>

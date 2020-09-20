@@ -7,6 +7,12 @@ const MoodStore = writable([
     mood: "7",
     moodId: "7",
   },
+  {
+    date: "yyy",
+    id: "y",
+    mood: "1",
+    moodId: "1",
+  },
 ]);
 
 export default MoodStore;
