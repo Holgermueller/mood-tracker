@@ -1,5 +1,8 @@
 <script>
+  import MoodStore from "../stores/MoodStore";
+  import { createEventDispatcher } from "svelte";
   import Modal from "../shared/Modal.svelte";
+  import moment from "moment";
 
   let showModal = false;
 
@@ -9,12 +12,27 @@
 
   let todaysMood = "";
 
+  let todaysDate = moment().format("hh:mm A, Do MMM YYYY");
+
   let toggleModal = (e) => {
     showModal = !showModal;
     console.log(e.target.value);
   };
 
-  const handleClick = (e) => {};
+  const addTodaysMood = (e) => {
+    console.log(e.target.value);
+
+    let todaysMood = {
+      date: todaysDate,
+      mood: e.target.value,
+      id: Math.random(),
+      moodId: e.target.id,
+    };
+
+    MoodStore.update((MoodStore) => {
+      return [todaysMood, ...MoodStore];
+    });
+  };
 </script>
 
 <style>
@@ -48,7 +66,7 @@
 
   {#each moodRange as mood}
     <button
-      on:click={toggleModal}
+      on:click={addTodaysMood}
       id={mood}
       value={mood}
       class="button">{mood}</button>

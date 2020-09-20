@@ -3,7 +3,7 @@
     background: #f7f7f7;
     padding: 5px;
     bottom: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
   }
   div {
