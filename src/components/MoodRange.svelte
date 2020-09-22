@@ -3,6 +3,8 @@
   import { createEventDispatcher } from "svelte";
   import Modal from "../shared/Modal.svelte";
   import moment from "moment";
+  import IoMdHappy from "svelte-icons/io/IoMdHappy.svelte";
+  import MdSentimentVeryDissatisfied from "svelte-icons/md/MdSentimentVeryDissatisfied.svelte";
 
   let showModal = false;
 
@@ -53,6 +55,11 @@
   .button {
     margin: 4px;
   }
+
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
 </style>
 
 <Modal {showModal} on:click={toggleModal}>
@@ -62,7 +69,12 @@
 <fieldset>
   <legend>Range:</legend>
 
-  <p class="low-end">Ugh...</p>
+  <div class="low-end">
+    <div class="icon">
+      <MdSentimentVeryDissatisfied />
+    </div>
+    <p>Ugh...</p>
+  </div>
 
   {#each moodRange as mood}
     <button
@@ -72,5 +84,10 @@
       class="button">{mood}</button>
   {/each}
 
-  <p class="high-end">Great!!</p>
+  <div class="high-end">
+    <div class="icon">
+      <IoMdHappy />
+    </div>
+    <p>Great!!</p>
+  </div>
 </fieldset>
