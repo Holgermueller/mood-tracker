@@ -2,7 +2,10 @@
   import MoodStore from "../stores/MoodStore";
 
   $: daysTracked = $MoodStore.length;
-  $: occuranceOfMood = $MoodStore.map((mood) => mood.mood);
+  $: occuranceOfMoods = $MoodStore.reduce((counter, obj) => {
+    if (obj.mood === obj.moodId) counter += 1;
+    return counter;
+  }, 0);
 </script>
 
 <style>
@@ -34,7 +37,7 @@
 <div>
   {#each $MoodStore as mood}
     <div class="mood">
-      <span>{mood.mood} | Days felt: {occuranceOfMood.unique()} </span>
+      <span>{mood.mood} | Days felt: {occuranceOfMoods} </span>
     </div>
   {/each}
 </div>
