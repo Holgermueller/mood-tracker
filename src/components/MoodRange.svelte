@@ -44,12 +44,8 @@
     border-radius: 15px;
   }
 
-  .low-end {
-    float: left;
-  }
-
-  .high-end {
-    float: right;
+  ul {
+    list-style: none;
   }
 
   .button {
@@ -70,24 +66,27 @@
   <legend>Range:</legend>
 
   <div class="low-end">
-    <div class="icon">
-      <MdSentimentVeryDissatisfied />
-    </div>
     <p>Ugh...</p>
   </div>
 
-  {#each moodRange as mood}
-    <button
-      on:click={addTodaysMood}
-      id={mood}
-      value={mood}
-      class="button">{mood}</button>
-  {/each}
-
+  <ul>
+    <li>
+      <button>
+        <div class="icon">
+          <MdSentimentVeryDissatisfied />
+        </div>
+      </button>
+    </li>
+    <li><button /></li>
+    <li><button /></li>
+    <li><button /></li>
+    <li>
+      <button><div class="icon">
+          <IoMdHappy />
+        </div></button>
+    </li>
+  </ul>
   <div class="high-end">
-    <div class="icon">
-      <IoMdHappy />
-    </div>
     <p>Great!!</p>
   </div>
 </fieldset>
