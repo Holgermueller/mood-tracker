@@ -3,8 +3,10 @@
   import { createEventDispatcher } from "svelte";
   import Modal from "../shared/Modal.svelte";
   import moment from "moment";
+  import FaRegAngry from "svelte-icons/fa/FaRegAngry.svelte";
   import IoMdHappy from "svelte-icons/io/IoMdHappy.svelte";
-  import MdSentimentVeryDissatisfied from "svelte-icons/md/MdSentimentVeryDissatisfied.svelte";
+  import FaRegSadTear from "svelte-icons/fa/FaRegSadTear.svelte";
+  import FaRegTired from "svelte-icons/fa/FaRegTired.svelte";
 
   let showModal = false;
 
@@ -46,9 +48,11 @@
 
   ul {
     list-style: none;
+    display: flex;
+    margin: auto;
   }
 
-  .button {
+  button {
     margin: 4px;
   }
 
@@ -73,13 +77,31 @@
     <li>
       <button>
         <div class="icon">
-          <MdSentimentVeryDissatisfied />
+          <FaRegSadTear />
         </div>
       </button>
     </li>
-    <li><button /></li>
-    <li><button /></li>
-    <li><button /></li>
+    <li>
+      <button>
+        <div class="icon">
+          <FaRegAngry />
+        </div>
+      </button>
+    </li>
+    <li>
+      <button>
+        <div class="icon">
+          <FaRegSadTear />
+        </div>
+      </button>
+    </li>
+    <li>
+      <button>
+        <div class="icon">
+          <FaRegTired />
+        </div>
+      </button>
+    </li>
     <li>
       <button><div class="icon">
           <IoMdHappy />
