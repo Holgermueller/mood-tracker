@@ -3,21 +3,39 @@ import { writable } from "svelte/store";
 const MoodStore = writable([
   {
     date: "xxx",
-    id: "x",
-    mood: "7",
-    moodId: "7",
+    mood: "Bored",
+    moodId: "bored",
+    timesFelt: 0,
   },
   {
     date: "yyy",
-    id: "y",
-    mood: "1",
-    moodId: "1",
+    mood: "Happy",
+    moodId: "happy",
+    timesFelt: 1,
   },
   {
     date: "xxx",
-    id: "x",
-    mood: "7",
-    moodId: "7",
+    mood: "Sad",
+    moodId: "Sad",
+    timesFelt: 2,
+  },
+  {
+    date: "xxx",
+    mood: "Tired",
+    moodId: "tired",
+    timesFelt: 3,
+  },
+  {
+    date: "xxx",
+    mood: "Crazed",
+    moodId: "crazed",
+    timesFelt: 4,
+  },
+  {
+    date: "xxx",
+    mood: "Angry",
+    moodId: "angry",
+    timesFelt: 10,
   },
 ]);
 

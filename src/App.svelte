@@ -7,8 +7,8 @@
   import Graphs from "./components/Graphs.svelte";
   import Tabs from "./shared/Tabs.svelte";
 
-  let items = ["Chart", "Graphs"];
-  let activeItem = "Chart";
+  let items = ["Graphs", "Chart"];
+  let activeItem = "Graphs";
   const tabChange = (e) => (activeItem = e.detail);
 
   const handleAdd = () => {
@@ -38,10 +38,10 @@
   <MoodRange />
 
   <Tabs {activeItem} {items} on:tabChange={tabChange} />
-  {#if activeItem === 'Chart'}
-    <Chart />
-  {:else if activeItem === 'Graphs'}
-    <Graphs on:add={handleAdd} />
+  {#if activeItem === 'Graphs'}
+    <Graphs />
+  {:else if activeItem === 'Chart'}
+    <Chart on:add={handleAdd} />
   {/if}
 </main>
 
