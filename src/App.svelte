@@ -3,6 +3,7 @@
   import Footer from "./components/Footer.svelte";
   import TodaysDate from "./components/TodaysDate.svelte";
   import MoodRange from "./components/MoodRange.svelte";
+  import InstancesTracked from "./components/InstancesTracked.svelte";
   import Chart from "./components/Chart.svelte";
   import Graphs from "./components/Graphs.svelte";
   import Tabs from "./shared/Tabs.svelte";
@@ -36,6 +37,7 @@
   <h3>How are you feeling today?</h3>
   <TodaysDate />
   <MoodRange />
+  <InstancesTracked />
 
   <Tabs {activeItem} {items} on:tabChange={tabChange} />
   {#if activeItem === 'Graphs'}

@@ -1,26 +1,19 @@
 <script>
   import MoodStore from "../stores/MoodStore";
   import { createEventDispatcher } from "svelte";
-  import Modal from "../shared/Modal.svelte";
   import moment from "moment";
 
-  let showModal = false;
+  const addTodaysMood = (option, id) => {
+    MoodStore.update((moods) => {
+      let moodsToUpdate = [...moods];
 
-  let toggleModal = (e) => {
-    showModal = !showModal;
-    console.log(e.target.value);
-  };
+      let updateMood = moodsToUpdate.find((mood) => mood.id == id);
 
-  const addTodaysMood = (e) => {
-    console.log(e.target.value);
+      if (option === "bored") {
+        updateMood.timesFelt++;
+      }
 
-    let incrementTimesFelt = {
-      moodId: e.target.id,
-      timesFelt: +1,
-    };
-
-    MoodStore.update((MoodStore) => {
-      return timesFelt + 1;
+      return moodsToUpdate;
     });
   };
 </script>
@@ -37,10 +30,6 @@
   }
 </style>
 
-<Modal {showModal} on:click={toggleModal}>
-  <h1>This is the modal!!</h1>
-</Modal>
-
 <fieldset>
   <legend>Range:</legend>
 
@@ -48,8 +37,8 @@
     <button
       on:click={addTodaysMood}
       class="button"
-      id={mood.mood}
-      value={mood.mood}>
+      id={mood.id}
+      value={mood.id}>
       {mood.mood}
     </button>
   {/each}

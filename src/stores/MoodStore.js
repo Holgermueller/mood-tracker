@@ -4,37 +4,37 @@ const MoodStore = writable([
   {
     date: "xxx",
     mood: "Bored",
-    moodId: "bored",
+    id: "bored",
     timesFelt: 0,
   },
   {
     date: "yyy",
     mood: "Happy",
-    moodId: "happy",
+    id: "happy",
     timesFelt: 1,
   },
   {
     date: "xxx",
     mood: "Sad",
-    moodId: "Sad",
+    id: "sad",
     timesFelt: 2,
   },
   {
     date: "xxx",
     mood: "Tired",
-    moodId: "tired",
+    id: "tired",
     timesFelt: 3,
   },
   {
     date: "xxx",
     mood: "Crazed",
-    moodId: "crazed",
+    id: "crazed",
     timesFelt: 4,
   },
   {
     date: "xxx",
     mood: "Angry",
-    moodId: "angry",
+    id: "angry",
     timesFelt: 10,
   },
 ]);
