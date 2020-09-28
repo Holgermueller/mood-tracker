@@ -1,10 +1,13 @@
 <script>
   import MoodStore from "../stores/MoodStore";
 
-  $: daysTracked = $MoodStore.reduce((a, { timesFelt }) => a + timesFelt, 0);
+  $: instancesTracked = $MoodStore.reduce(
+    (a, { timesFelt }) => a + timesFelt,
+    0
+  );
 
   $: percentForWidth = $MoodStore.map((mood) => {
-    return Math.floor((100 / daysTracked) * mood.timesFelt) || 0;
+    return Math.floor((100 / instancesTracked) * mood.timesFelt) || 0;
   });
 </script>
 
@@ -59,8 +62,8 @@
 <div class="graphs">
   {#each $MoodStore as mood}
     <div class="mood">
-      <div class={mood.mood} style="width: {percentForWidth}%;">
-        <span>{mood.mood} | Days felt: {mood.timesFelt} </span>
+      <div class={mood.mood}>
+        <span>{mood.mood} | Days felt: {mood.timesFelt}</span>
       </div>
     </div>
   {/each}
