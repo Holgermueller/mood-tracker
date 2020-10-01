@@ -3,14 +3,35 @@
   import { createEventDispatcher } from "svelte";
   import moment from "moment";
 
-  const addTodaysMood = (option, id) => {
+  const addTodaysMood = (e) => {
     MoodStore.update((moods) => {
       let moodsToUpdate = [...moods];
 
-      let updateMood = moodsToUpdate.find((mood) => mood.id == id);
+      let updatedMood = moodsToUpdate.find((mood) => mood.id == e.target.id);
+      console.log(updatedMood.timesFelt);
 
-      if (option === "bored") {
-        updateMood.timesFelt++;
+      if (e.target.id === "bored") {
+        updatedMood.timesFelt++;
+      }
+
+      if (e.target.id === "happy") {
+        updatedMood.timesFelt++;
+      }
+
+      if (e.target.id === "sad") {
+        updatedMood.timesFelt++;
+      }
+
+      if (e.target.id === "tired") {
+        updatedMood.timesFelt++;
+      }
+
+      if (e.target.id === "crazed") {
+        updatedMood.timesFelt++;
+      }
+
+      if (e.target.id === "angry") {
+        updatedMood.timesFelt++;
       }
 
       return moodsToUpdate;
