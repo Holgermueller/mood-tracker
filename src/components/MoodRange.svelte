@@ -8,29 +8,8 @@
       let moodsToUpdate = [...moods];
 
       let updatedMood = moodsToUpdate.find((mood) => mood.id == e.target.id);
-      console.log(updatedMood.timesFelt);
 
-      if (e.target.id === "bored") {
-        updatedMood.timesFelt++;
-      }
-
-      if (e.target.id === "happy") {
-        updatedMood.timesFelt++;
-      }
-
-      if (e.target.id === "sad") {
-        updatedMood.timesFelt++;
-      }
-
-      if (e.target.id === "tired") {
-        updatedMood.timesFelt++;
-      }
-
-      if (e.target.id === "crazed") {
-        updatedMood.timesFelt++;
-      }
-
-      if (e.target.id === "angry") {
+      if (e.target.id === e.target.value) {
         updatedMood.timesFelt++;
       }
 
