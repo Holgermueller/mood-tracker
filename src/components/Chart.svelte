@@ -2,15 +2,15 @@
   import MoodStore from "../stores/MoodStore";
   import Pie from "svelte-chartjs/src/Pie.svelte";
 
-  console.log($MoodStore);
+  const moods = $MoodStore.map((mood) => mood.mood);
 
-  const moodData = {};
+  const timesFelt = $MoodStore.map((mood) => mood.timesFelt);
 
   let data = {
-    labels: ["mood1", "mood2", "mood3", "mood4", "mood5", "mood6"],
+    labels: moods,
     datasets: [
       {
-        label: "Mood",
+        label: "Moods: ",
         backgroundColor: [
           "red",
           "#0066ff",
@@ -19,12 +19,16 @@
           "#000066",
           "#ff9900",
         ],
-        data: [12, 19, 3, 5, 2, 3],
+        data: timesFelt,
       },
     ],
   };
 
   let options = {
+    title: {
+      display: true,
+      text: "Moods",
+    },
     responsive: true,
   };
 </script>
