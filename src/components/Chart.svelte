@@ -5,20 +5,14 @@
   const moods = $MoodStore.map((mood) => mood.mood);
 
   const timesFelt = $MoodStore.map((mood) => mood.timesFelt);
+  const moodColors = $MoodStore.map((mood) => mood.color);
 
   let data = {
     labels: moods,
     datasets: [
       {
         label: "Moods: ",
-        backgroundColor: [
-          "red",
-          "#0066ff",
-          "#00ffff",
-          "#33cc33",
-          "#000066",
-          "#ff9900",
-        ],
+        backgroundColor: moodColors,
         data: timesFelt,
       },
     ],
