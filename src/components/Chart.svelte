@@ -2,8 +2,8 @@
   import MoodStore from "../stores/MoodStore";
   import Pie from "svelte-chartjs/src/Pie.svelte";
 
-  const moods = $MoodStore.map((mood) => mood.mood);
   const timesFelt = $MoodStore.map((mood) => mood.timesFelt);
+  const moods = $MoodStore.map((mood) => mood.mood);
   const moodColors = $MoodStore.map((mood) => mood.color);
   const borderColors = $MoodStore.map((mood) => mood.borderColor);
 

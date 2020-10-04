@@ -6,9 +6,10 @@
   import InstancesTracked from "./components/InstancesTracked.svelte";
   import Chart from "./components/Chart.svelte";
   import Graphs from "./components/Graphs.svelte";
+  import Resources from "./components/Resources.svelte";
   import Tabs from "./shared/Tabs.svelte";
 
-  let items = ["Graphs", "Chart"];
+  let items = ["Graphs", "Chart", "Resources"];
   let activeItem = "Graphs";
   const tabChange = (e) => (activeItem = e.detail);
 
@@ -43,6 +44,8 @@
     <Graphs />
   {:else if activeItem === 'Chart'}
     <Chart on:add={handleAdd} />
+  {:else if activeItem === 'Resources'}
+    <Resources />
   {/if}
 </main>
 
