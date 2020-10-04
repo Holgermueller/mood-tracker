@@ -29,12 +29,14 @@
     margin: 4px;
     color: whitesmoke;
     border-radius: 7px;
-    width: 100%;
+    width: 15%;
   }
 </style>
 
 <fieldset>
-  <legend>Range:</legend>
+  <legend>
+    <h3>How are you feeling today?</h3>
+  </legend>
 
   {#each $MoodStore as mood}
     <button

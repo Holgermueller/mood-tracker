@@ -34,7 +34,6 @@
 
 <Header />
 <main>
-  <h3>How are you feeling today?</h3>
   <TodaysDate />
   <MoodRange />
   <InstancesTracked />
