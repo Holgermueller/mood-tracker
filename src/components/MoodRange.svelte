@@ -27,7 +27,6 @@
 
   button {
     margin: 4px;
-    color: whitesmoke;
     border-radius: 7px;
     width: 15%;
   }
@@ -42,7 +41,7 @@
     <button
       on:click={addTodaysMood}
       class="button"
-      style="background-color:{mood.color}"
+      style="background-color:{mood.color}; border: 1px solid {mood.borderColor}"
       id={mood.id}
       value={mood.id}>
       {mood.mood}
