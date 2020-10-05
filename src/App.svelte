@@ -1,52 +1,26 @@
 <script>
+  import { Router, Link, Route } from "svelte-routing";
   import Header from "./components/Header.svelte";
   import Footer from "./components/Footer.svelte";
-  import TodaysDate from "./components/TodaysDate.svelte";
-  import MoodRange from "./components/MoodRange.svelte";
-  import InstancesTracked from "./components/InstancesTracked.svelte";
-  import Chart from "./components/Chart.svelte";
-  import Graphs from "./components/Graphs.svelte";
-  import Resources from "./components/Resources.svelte";
-  import Tabs from "./shared/Tabs.svelte";
+  import Home from "./routes/Home.svelte";
+  import Dashboard from "./routes/Dashboard.svelte";
 
-  let items = ["Graphs", "Chart", "Resources"];
-  let activeItem = "Graphs";
-  const tabChange = (e) => (activeItem = e.detail);
-
-  const handleAdd = () => {
-    activeItem = "Chart";
-  };
+  export let url = "";
 </script>
 
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>
-
 <Header />
-<main>
-  <TodaysDate />
-  <MoodRange />
-  <InstancesTracked />
 
-  <Tabs {activeItem} {items} on:tabChange={tabChange} />
-  {#if activeItem === 'Graphs'}
-    <Graphs />
-  {:else if activeItem === 'Chart'}
-    <Chart on:add={handleAdd} />
-  {:else if activeItem === 'Resources'}
-    <Resources />
-  {/if}
-</main>
+<Router {url}>
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="dashboard">Dash</Link>
+  </nav>
+  <div>
+    <Route path="dashboard" component={Dashboard} />
+    <Route path="/">
+      <Home />
+    </Route>
+  </div>
+</Router>
 
 <Footer />
