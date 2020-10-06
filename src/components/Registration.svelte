@@ -1,13 +1,28 @@
 <script>
+  let username = "";
+  let password = "";
+  let confirmPassword = "";
+
   const registerUser = (e) => {
     e.preventDefault();
-    console.log("hello");
+
+    let user = {
+      username,
+      password,
+      confirmPassword,
+    };
+
+    console.log(user);
   };
 
   const clearForm = (e) => {
     e.preventDefault();
 
-    console.log("hello");
+    let user = {
+      username: "",
+      password: "",
+      confirmPassword: "",
+    };
   };
 </script>
 
@@ -33,21 +48,21 @@
       type="text"
       name="username"
       id="username"
-      value="username"
+      bind:value={username}
       placeholder="Username" />
     <input
       class="input"
       type="text"
       name="password"
       id="password"
-      value="password"
+      bind:value={password}
       placeholder="Password" />
     <input
       class="input"
       type="text"
       name="confirmPassword"
       id="confirmPassword"
-      value="confirmPassword"
+      bind:value={confirmPassword}
       placeholder="Confirm Password" />
     <button id="clear" class="clear" on:click={clearForm}>Clear</button>
     <button id="submit" class="submit" on:click={registerUser}>Submit</button>

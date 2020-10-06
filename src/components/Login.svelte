@@ -1,7 +1,16 @@
 <script>
+  let username = "";
+  let password = "";
+
   const loginUser = (e) => {
     e.preventDefault();
-    console.log("hello");
+
+    let user = {
+      username,
+      password,
+    };
+
+    console.log(user);
   };
 
   const clearForm = (e) => {
@@ -33,14 +42,14 @@
       type="text"
       name="username"
       id="username"
-      value="username"
+      bind:value={username}
       placeholder="Username" />
     <input
       class="input"
       type="text"
       name="password"
       id="password"
-      value="password"
+      bind:value={password}
       placeholder="Password" />
     <button on:click={clearForm}>Clear</button>
     <button on:click={loginUser}>Submit</button>
