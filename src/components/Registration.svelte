@@ -3,9 +3,7 @@
   let password = "";
   let confirmPassword = "";
 
-  const registerUser = (e) => {
-    e.preventDefault();
-
+  const registerUser = () => {
     let user = {
       username,
       password,
@@ -13,6 +11,16 @@
     };
 
     console.log(user);
+  };
+
+  const confirmPasswordsMatch = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      console.log("error");
+    } else {
+      registerUser();
+    }
   };
 
   const clearForm = (e) => {
@@ -65,6 +73,9 @@
       bind:value={confirmPassword}
       placeholder="Confirm Password" />
     <button id="clear" class="clear" on:click={clearForm}>Clear</button>
-    <button id="submit" class="submit" on:click={registerUser}>Submit</button>
+    <button
+      id="submit"
+      class="submit"
+      on:click={confirmPasswordsMatch}>Submit</button>
   </form>
 </fieldset>
