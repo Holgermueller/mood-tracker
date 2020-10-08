@@ -3,6 +3,7 @@
   let password = "";
   let confirmPassword = "";
   let error = "";
+  let success = "";
 
   const registerUser = () => {
     let user = {
@@ -11,17 +12,25 @@
       confirmPassword,
     };
 
+    error = "";
+
+    success = "You are now registered!";
+
     console.log(user);
   };
 
-  const confirmPasswordsMatch = (e) => {
+  const validateRegistrationForm = (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
+    if (!username) {
+      error = "You must provide a username!";
+    } else if (!password) {
+      error = "You must provide a password!";
+    } else if (!confirmPassword) {
+      error = "You must confirm your password!";
+    } else if (password !== confirmPassword) {
       error = "Passwords do not match!";
-    } else {
-      registerUser();
-    }
+    } else registerUser();
   };
 
   const clearForm = (e) => {
@@ -47,6 +56,10 @@
 
   .error {
     color: red;
+  }
+
+  .success {
+    color: green;
   }
 </style>
 
@@ -82,10 +95,14 @@
       <p class="error">{error}</p>
     {/if}
 
+    {#if success}
+      <p class="success">{success}</p>
+    {/if}
+
     <button id="clear" class="clear" on:click={clearForm}>Clear</button>
     <button
       id="submit"
       class="submit"
-      on:click={confirmPasswordsMatch}>Submit</button>
+      on:click={validateRegistrationForm}>Submit</button>
   </form>
 </fieldset>
