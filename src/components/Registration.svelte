@@ -2,6 +2,7 @@
   let username = "";
   let password = "";
   let confirmPassword = "";
+  let error = "";
 
   const registerUser = () => {
     let user = {
@@ -17,7 +18,7 @@
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      console.log("error");
+      error = "Passwords do not match!";
     } else {
       registerUser();
     }
@@ -42,6 +43,10 @@
 
   .input {
     width: 100%;
+  }
+
+  .error {
+    color: red;
   }
 </style>
 
@@ -72,6 +77,11 @@
       id="confirmPassword"
       bind:value={confirmPassword}
       placeholder="Confirm Password" />
+
+    {#if error}
+      <p class="error">{error}</p>
+    {/if}
+
     <button id="clear" class="clear" on:click={clearForm}>Clear</button>
     <button
       id="submit"
