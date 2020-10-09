@@ -30,7 +30,9 @@
       error = "You must confirm your password!";
     } else if (password !== confirmPassword) {
       error = "Passwords do not match!";
-    } else registerUser();
+    } else {
+      registerUser();
+    }
   };
 
   const clearForm = (e) => {

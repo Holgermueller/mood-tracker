@@ -1,14 +1,27 @@
 <script>
   let username = "";
   let password = "";
+  let error = "";
 
-  const loginUser = (e) => {
+  const validateForm = (e) => {
     e.preventDefault();
 
+    if (!username) {
+      error = "You must provide a username.";
+    } else if (!password) {
+      error = "You must provide a password";
+    } else {
+      loginUser();
+    }
+  };
+
+  const loginUser = () => {
     let user = {
       username,
       password,
     };
+
+    error = "";
 
     console.log(user);
   };
@@ -28,6 +41,10 @@
 
   .input {
     width: 100%;
+  }
+
+  .error {
+    color: red;
   }
 </style>
 
@@ -51,7 +68,12 @@
       id="password"
       bind:value={password}
       placeholder="Password" />
+
+    {#if error}
+      <p class="error">{error}</p>
+    {/if}
+
     <button on:click={clearForm}>Clear</button>
-    <button on:click={loginUser}>Submit</button>
+    <button on:click={validateForm}>Submit</button>
   </form>
 </fieldset>
