@@ -23,13 +23,16 @@
 
     error = "";
 
+    clearForm();
+
     console.log(user);
   };
 
   const clearForm = (e) => {
     e.preventDefault();
 
-    console.log("hello");
+    username = "";
+    password = "";
   };
 </script>
 
@@ -73,7 +76,11 @@
       <p class="error">{error}</p>
     {/if}
 
-    <button on:click={clearForm}>Clear</button>
-    <button on:click={validateForm}>Submit</button>
+    <button id="clear" class="clear" on:click={clearForm}>Clear</button>
+    <button
+      id="submit"
+      class="submit"
+      on:click={validateForm}
+      disabled={!username || !password}>Submit</button>
   </form>
 </fieldset>

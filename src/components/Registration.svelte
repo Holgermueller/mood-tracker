@@ -19,6 +19,8 @@
     console.log(user);
   };
 
+  const checkUsername = () => {};
+
   const validateRegistrationForm = (e) => {
     e.preventDefault();
 
@@ -32,17 +34,14 @@
       error = "Passwords do not match!";
     } else {
       registerUser();
+      clearForm();
     }
   };
 
-  const clearForm = (e) => {
-    e.preventDefault();
-
-    let user = {
-      username: "",
-      password: "",
-      confirmPassword: "",
-    };
+  const clearForm = () => {
+    username = "";
+    password = "";
+    confirmPassword = "";
   };
 </script>
 
@@ -63,6 +62,10 @@
   .success {
     color: green;
   }
+
+  .submit {
+    background-color: green;
+  }
 </style>
 
 <fieldset>
@@ -72,6 +75,7 @@
 
   <form class="form" id="form">
     <input
+      hint="blah"
       class="input"
       type="text"
       name="username"
@@ -105,6 +109,7 @@
     <button
       id="submit"
       class="submit"
-      on:click={validateRegistrationForm}>Submit</button>
+      on:click={validateRegistrationForm}
+      disabled={!username || !password || !confirmPassword}>Submit</button>
   </form>
 </fieldset>
