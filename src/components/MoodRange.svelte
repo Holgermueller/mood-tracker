@@ -24,7 +24,6 @@
     margin: 8px auto;
     border-radius: 15px;
   }
-
   button {
     margin: 4px;
     border-radius: 7px;

@@ -42,11 +42,9 @@
     margin: auto;
     border-radius: 8px;
   }
-
   .input {
     width: 100%;
   }
-
   .error {
     color: red;
   }
@@ -56,7 +54,6 @@
     color: white;
     border-radius: 8px;
   }
-
   .submit {
     background-color: green;
     color: white;

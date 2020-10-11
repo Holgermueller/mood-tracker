@@ -1,4 +1,6 @@
 <script>
+  import UserStore from "../stores/UserStore";
+
   let username = "";
   let password = "";
   let confirmPassword = "";
@@ -12,11 +14,14 @@
       confirmPassword,
     };
 
+    UserStore.update({ user });
+
     error = "";
 
     success = "You are now registered!";
 
-    console.log(user);
+    console.log(UserStore.user);
+    return user;
   };
 
   const checkUsername = () => {};
@@ -51,33 +56,27 @@
     margin: auto;
     border-radius: 8px;
   }
-
   .input {
     width: 100%;
   }
-
   .error {
     color: red;
   }
-
   .success {
     color: green;
   }
-
   .clear {
     border-color: red;
     background-color: red;
     color: white;
     border-radius: 8px;
   }
-
   .submit {
     border-color: green;
     background-color: green;
     color: white;
     border-radius: 8px;
   }
-
   .submit:disabled {
     border-color: grey;
     background-color: grey;
