@@ -32,6 +32,8 @@
   }
 </style>
 
+<h2>Hello, [username]</h2>
+
 <fieldset>
   <legend>
     <h3>How are you feeling today?</h3>

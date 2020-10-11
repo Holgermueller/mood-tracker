@@ -7,6 +7,11 @@
   const moodColors = $MoodStore.map((mood) => mood.color);
   const borderColors = $MoodStore.map((mood) => mood.borderColor);
 
+  $: instancesTracked = $MoodStore.reduce(
+    (a, { timesFelt }) => a + timesFelt,
+    0
+  );
+
   let data = {
     labels: moods,
     datasets: [

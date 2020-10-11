@@ -40,6 +40,7 @@
   fieldset {
     width: 75%;
     margin: auto;
+    border-radius: 8px;
   }
 
   .input {
@@ -50,6 +51,7 @@
     color: red;
   }
   .clear {
+    border-color: red;
     background-color: red;
     color: white;
     border-radius: 8px;
@@ -59,6 +61,10 @@
     background-color: green;
     color: white;
     border-radius: 8px;
+  }
+  .submit:disabled {
+    border-color: grey;
+    background-color: grey;
   }
 </style>
 
