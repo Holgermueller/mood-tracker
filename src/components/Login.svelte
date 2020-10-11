@@ -49,6 +49,17 @@
   .error {
     color: red;
   }
+  .clear {
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+  }
+
+  .submit {
+    background-color: green;
+    color: white;
+    border-radius: 8px;
+  }
 </style>
 
 <fieldset>
