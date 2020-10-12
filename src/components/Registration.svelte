@@ -1,5 +1,8 @@
 <script>
-  import UserStore from "../stores/UserStore";
+  import User from "../stores/UserStore";
+  import { createEventDispatcher } from "svelte";
+
+  console.log($User);
 
   let username = "";
   let password = "";
@@ -14,21 +17,19 @@
       confirmPassword,
     };
 
-    UserStore.update({ user });
+    User.update((user) => (user = user));
 
     error = "";
 
     success = "You are now registered!";
 
-    console.log(UserStore.user);
+    console.log($User);
     return user;
   };
 
   const checkUsername = () => {};
 
   const validateRegistrationForm = (e) => {
-    e.preventDefault();
-
     if (!username) {
       error = "You must provide a username!";
     } else if (!password) {
@@ -88,7 +89,10 @@
     <h1>Register Here:</h1>
   </legend>
 
-  <form class="form" id="form">
+  <form
+    class="form"
+    id="form"
+    on:submit|preventDefault={validateRegistrationForm}>
     <input
       hint="blah"
       class="input"
@@ -124,7 +128,6 @@
     <button
       id="submit"
       class="submit"
-      on:click={validateRegistrationForm}
       disabled={!username || !password || !confirmPassword}>Submit</button>
   </form>
 </fieldset>

@@ -4,8 +4,6 @@
   let error = "";
 
   const validateForm = (e) => {
-    e.preventDefault();
-
     if (!username) {
       error = "You must provide a username.";
     } else if (!password) {
@@ -29,8 +27,6 @@
   };
 
   const clearForm = (e) => {
-    e.preventDefault();
-
     username = "";
     password = "";
   };
@@ -70,7 +66,7 @@
     <h1>Login Here:</h1>
   </legend>
 
-  <form class="form" id="form">
+  <form class="form" id="form" on:submit|preventDefault={validateForm}>
     <input
       class="input"
       type="text"
@@ -94,7 +90,6 @@
     <button
       id="submit"
       class="submit"
-      on:click={validateForm}
       disabled={!username || !password}>Submit</button>
   </form>
 </fieldset>
