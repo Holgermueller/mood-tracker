@@ -1,6 +1,5 @@
 <script>
   import MoodStore from "../stores/MoodStore";
-  import { createEventDispatcher } from "svelte";
   import moment from "moment";
 
   const addTodaysMood = (e) => {

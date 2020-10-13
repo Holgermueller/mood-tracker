@@ -1,8 +1,5 @@
 <script>
   import User from "../stores/UserStore";
-  import { createEventDispatcher } from "svelte";
-
-  console.log($User);
 
   let username = "";
   let password = "";
@@ -11,20 +8,21 @@
   let success = "";
 
   const registerUser = () => {
-    let user = {
+    let userData = {
       username,
       password,
       confirmPassword,
     };
 
-    User.update((user) => (user = user));
+    User.update((data) => {
+      return [userData, ...data];
+    });
 
     error = "";
-
     success = "You are now registered!";
 
-    console.log($User);
-    return user;
+    console.log(User);
+    return User;
   };
 
   const checkUsername = () => {};
@@ -123,6 +121,8 @@
     {#if success}
       <p class="success">{success}</p>
     {/if}
+
+    <p>{$User} p</p>
 
     <button id="clear" class="clear" on:click={clearForm}>Clear</button>
     <button
