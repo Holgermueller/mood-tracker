@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-const MoodStore = writable([
+export const MoodStore = writable([
   {
     date: "xxx",
     mood: "Bored",
@@ -50,5 +50,3 @@ const MoodStore = writable([
     color: "rgba(217, 27, 66, 0.2)",
   },
 ]);
-
-export default MoodStore;

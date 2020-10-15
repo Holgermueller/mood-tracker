@@ -1,5 +1,5 @@
 <script>
-  import MoodStore from "../stores/MoodStore";
+  import { MoodStore } from "../stores/MoodStore";
   import Pie from "svelte-chartjs/src/Pie.svelte";
 
   const timesFelt = $MoodStore.map((mood) => mood.timesFelt);

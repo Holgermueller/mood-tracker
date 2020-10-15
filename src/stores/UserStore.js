@@ -1,5 +1,3 @@
 import { writable } from "svelte/store";
 
-const User = writable([]);
-
-export default User;
+export const User = writable(null);

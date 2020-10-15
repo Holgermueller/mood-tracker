@@ -3,7 +3,7 @@
   let password = "";
   let error = "";
 
-  const validateForm = (e) => {
+  const validateForm = () => {
     if (!username) {
       error = "You must provide a username.";
     } else if (!password) {

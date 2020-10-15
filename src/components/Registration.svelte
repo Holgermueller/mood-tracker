@@ -1,5 +1,5 @@
 <script>
-  import User from "../stores/UserStore";
+  import { User } from "../stores/UserStore";
 
   let username = "";
   let password = "";
@@ -15,7 +15,7 @@
     };
 
     User.update((data) => {
-      return [userData, ...data];
+      userData = data;
     });
 
     error = "";
