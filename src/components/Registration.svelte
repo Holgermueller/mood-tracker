@@ -54,6 +54,15 @@
   }
   .input {
     width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 8px auto;
+  }
+  .hint {
+    color: lightslategrey;
+  }
+  .buttons {
+    margin-top: 8px;
   }
   .error {
     color: red;
@@ -89,13 +98,15 @@
     id="form"
     on:submit|preventDefault={validateRegistrationForm}>
     <input
-      hint="blah"
       class="input"
       type="text"
       name="username"
       id="username"
       bind:value={username}
       placeholder="Username" />
+    <label for="username">
+      <small class="hint">(Username must be at least 8 characters long and
+        contain one number and one special character.)</small></label>
     <input
       class="input"
       type="text"
@@ -120,10 +131,12 @@
       <p class="success">{success}</p>
     {/if}
 
-    <button id="clear" class="clear" on:click={clearForm}>Clear</button>
-    <button
-      id="submit"
-      class="submit"
-      disabled={!username || !password || !confirmPassword}>Submit</button>
+    <div class="buttons">
+      <button id="clear" class="input clear" on:click={clearForm}>Clear</button>
+      <button
+        id="submit"
+        class="input submit"
+        disabled={!username || !password || !confirmPassword}>Submit</button>
+    </div>
   </form>
 </fieldset>
