@@ -14,15 +14,12 @@
       confirmPassword,
     };
 
-    User.update((data) => {
-      userData = data;
-    });
+    User.set(userData);
 
     error = "";
     success = "You are now registered!";
 
-    console.log(User);
-    return User;
+    return $User;
   };
 
   const checkUsername = () => {};
@@ -119,10 +116,9 @@
     {/if}
 
     {#if success}
+      <p>Welcome {$User.username}!</p>
       <p class="success">{success}</p>
     {/if}
-
-    <p>{$User} p</p>
 
     <button id="clear" class="clear" on:click={clearForm}>Clear</button>
     <button
