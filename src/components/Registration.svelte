@@ -15,10 +15,8 @@
     };
 
     User.set(userData);
-
     error = "";
     success = "You are now registered!";
-
     return $User;
   };
 
@@ -114,6 +112,9 @@
       id="password"
       bind:value={password}
       placeholder="Password" />
+    <label for="password">
+      <small class="hint">(Password must be at least 8 characters long and
+        contain one number and one special character.)</small></label>
     <input
       class="input"
       type="text"

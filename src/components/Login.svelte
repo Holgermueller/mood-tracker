@@ -1,7 +1,10 @@
 <script>
+  import { User } from "../stores/UserStore";
+
   let username = "";
   let password = "";
   let error = "";
+  let success = "";
 
   const validateForm = () => {
     if (!username) {
@@ -10,23 +13,23 @@
       error = "You must provide a password";
     } else {
       loginUser();
+      clearForm();
     }
   };
 
   const loginUser = () => {
-    let user = {
+    let userData = {
       username,
       password,
     };
 
+    User.set(userData);
     error = "";
-
-    clearForm();
-
-    console.log(user);
+    success = "You are now logged in!";
+    return $User;
   };
 
-  const clearForm = (e) => {
+  const clearForm = () => {
     username = "";
     password = "";
   };
@@ -40,9 +43,15 @@
   }
   .input {
     width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 8px auto;
   }
   .error {
     color: red;
+  }
+  .success {
+    color: green;
   }
   .clear {
     border-color: red;
@@ -52,6 +61,7 @@
   }
   .submit {
     background-color: green;
+    border-color: green;
     color: white;
     border-radius: 8px;
   }
@@ -84,6 +94,11 @@
 
     {#if error}
       <p class="error">{error}</p>
+    {/if}
+
+    {#if success}
+      <p>Welcome {$User.username}!</p>
+      <p class="success">{success}</p>
     {/if}
 
     <button id="clear" class="clear" on:click={clearForm}>Clear</button>
